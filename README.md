@@ -54,8 +54,9 @@ app.get("/:param1",(req,res)=>{
 		produtos: array
 }
 }
+</details>	
 ```
-##### INDEX.EJS
+<details><summary>INDEX.EJS</summary>
 ```
 <p>Nome: <%= params %></p>
 
@@ -68,6 +69,7 @@ app.get("/:param1",(req,res)=>{
 	<%= produto.idade %>
 <% } %>
 ```
+</details>
 ------------------------------------------------------------------------------------------------------------------------
 ## Arquivos Estaticos 
 
