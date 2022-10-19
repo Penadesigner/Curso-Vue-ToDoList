@@ -233,7 +233,7 @@ SEQUELIZE No Front - Importar as models com require.
 ```
 const slugify = require("slugify")
 
-slug: slugify
+slug: slugify(var_name)
 ```
 
 This site was built using [GitHub Pages](https://pages.github.com/)
