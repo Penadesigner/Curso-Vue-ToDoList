@@ -3,26 +3,36 @@
 ## Express
 
 NPM I EXPRESS --save
+
 É um framework para Node.js que fornece recursos mínimos para construção de servidores web
-Fornece métodos para especificar qual função é chamada quando chega requisição HTTP (GET, POST, SET, etc.) e de rotas e métodos para especificar o mecanismo de modelo ("view") usado, onde o modelo arquivos estão localizados e qual modelo usar para renderizar uma resposta. Você pode usar o middleware Express para adicionar suporte para cookies, sessões e usuários, obtendo parâmetros POST / GET, etc.
+
+Fornece métodos para especificar qual função é chamada quando chega requisição HTTP (GET, POST, SET, etc.) e de rotas e métodos para especificar o mecanismo de modelo ("view") usado, onde o modelo arquivos estão localizados e qual modelo usar para renderizar uma resposta. Você pode usar o middleware 
+Express para adicionar suporte para cookies, sessões e usuários, obtendo parâmetros POST / GET, etc.
 
 ------------------------------------------------------------------------------------------------------------------------
 ## MYSQL
 
 DOWNLOAD: Mysql Installer > Server only > Development Machuine
-INSTALL BIBLIOTECA PARA USO DO SEQUELIZE: NPM I MYSQL2 --save
+
 CONF: Adiciona o PATH nas confs avancadas
+
+PARA USO DO SEQUELIZE: NPM I MYSQL2 --save
+
 
 ------------------------------------------------------------------------------------------------------------------------
 ## EJS 
+
 Template Engine - Renderiza HTML 
 
-INSTALL: NPM I EJS --save
+NPM I EJS --save
+
 CONF: 
 ```
 app.set('view  engine','ejs')
 ```
-CRIAR PASTA VIEWS (Esta pasta esta ligada ao res.RENDER), onde criamos os arquivos .EJS. 
+
+CRIAR PASTA VIEWS (Esta pasta esta ligada ao res.RENDER), onde criamos os arquivos .EJS.
+
 Exemplo: 
 
 ##### INDEX.JS
@@ -67,15 +77,20 @@ app.set(express.static("public")) > Criar pasta public na raiz
 ## Partials
 
 COMEÇAR: Crie uma pasta "partials" dentro da pasta VIEWS 
-USAR: dentro do index.js, voce chama a partial assim <%- include("partials/nomearquivo.ejs" %>
 
+USAR: dentro do index.js, voce chama a partial assim:
+```
+<%- include("partials/nomearquivo.ejs" %>
+```
 ------------------------------------------------------------------------------------------------------------------------
 ## Sequelize
 
 Manipulador de banco de dados
 
 ### COMEÇAR: 
+
 Cria arquivo Database > na pasta Database > const sequelize - require("sequelize") > 
+
 ```
 const connection = new sequelize('banco_name','user','senha',{
 	host: localhost,
@@ -84,14 +99,19 @@ const connection = new sequelize('banco_name','user','senha',{
 })
 module.exports = connection
 ```
+
 O model representa a tabela
 
 ### NO INDEX.JS 
-Chama o arquivo de conexão > const connection = require("caminho do arquivo")
-							connection.authenticate().then(()=>{}).catch(()=>{})
 
+Chama o arquivo de conexão > 
+```
+const connection = require("caminho do arquivo")
+connection.authenticate().then(()=>{}).catch(()=>{})
+```
 
 ### CRIANDO MODEL
+
 Novo arquivo Pergunta.js, na pasta Database > Const sequelize - Const connection
 ```
 Const Pergunta = connection.define('nome_da_tabela',`{
@@ -105,13 +125,16 @@ Const Pergunta = connection.define('nome_da_tabela',`{
 Pergunta.Sync({force: false}).then.catch
 module.exports = Pergunta
 ```
+
 ### NO INDEX.JS
 ```	
 const PergutaModel = require("caminho_do_arquivo_Model")
 ```
+
 O model sera executado assim que o Index.js for solicitado.
 
 #### Salvar dados do form na tabela
+
 ```
 app.post("/",(req.res)=>{
 	var 1 = req.body.campo1
@@ -124,6 +147,7 @@ app.post("/",(req.res)=>{
 })
 ```
 #### Pesquisando dados na tabela
+
 ```
 Pergunta.findAll({ order:['id','DESC'] })
    .then(perguntas => {
@@ -133,6 +157,7 @@ Pergunta.findAll({ order:['id','DESC'] })
 })catch
 ```
 #### Pesquisando 1 dado na tabela
+
 ```
 Pergunta.findOne({where: {id:id }})
     .then(pergunta => {
@@ -140,6 +165,7 @@ Pergunta.findOne({where: {id:id }})
 		pergunta: pergunta
 ```
 #### Mostrando na Tela
+
 ```
 <% perguntas.forEach(pergunta => { %>
 	<p> <%= pergunta.titulo %> </p>
@@ -155,6 +181,7 @@ com require, e assim voce podera usa-las desta maneira:
 ```
 app.use("/caminhoquevocequsier",Nome_da_Controller_Importada);
 ```
+
 Dentro do Controller, nos precisamos Chamarar a:
 ```
 Const router = express.Router()
@@ -163,11 +190,12 @@ module.exports = router;
 
 ---------------------------------------------------------------------------------------------------------------
 
-> **Models** e **Controllers**, utilizam a mesma pasta
+> '#ff4f28'**Models** e **Controllers**, utilizam a mesma pasta
 
 ---------------------------------------------------------------------------------------------------------------
 
 ## MODELS 
+
 Crie o arquivo Model (Exemplo.js)
 ```
 Const Exemplo = connection.define('nome_da_tabela',`{
@@ -178,6 +206,7 @@ Const Exemplo = connection.define('nome_da_tabela',`{
 		type: Sequelize.Text,
 		allowNull: false}
 })
+
 Exemplo.Sync({force: false}).then.catch
 module.exports = Exemplo
 ```
@@ -185,9 +214,10 @@ module.exports = Exemplo
 --------------------------------------------------------------------------------------------------------------------
 
 ## RELACIONAMENTOS 
+
 1p1, 1pM, MpM.
 		
-### NO SEQUELIZE
+#### NO SEQUELIZE
 hasOne (tem um) - Exemplo: Pessoa possui uma Crush
 belongsTo (pertence a) - Exemplo: Crush pertence a uma Pessoa
 hasMany (tem muitos) - Exemplo: uma pessoa pode ter vários crushs.
@@ -195,7 +225,6 @@ belongsToMany (pertence a muitos) - Exemplo: Pessoas, pode possuir vários Crush
 
 SEQUELIZE No Front - Importar as models com require.
 
-
----
+--------------------------------------------------------------------------------------------------------------------
 
 This site was built using [GitHub Pages](https://pages.github.com/)
