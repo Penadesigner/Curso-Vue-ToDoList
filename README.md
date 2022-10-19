@@ -194,3 +194,7 @@ hasMany (tem muitos) - Exemplo: uma pessoa pode ter vários crushs.
 belongsToMany (pertence a muitos) - Exemplo: Pessoas, pode possuir vários Crushs E Crushs podem pertencer a várias Perssoas
 
 SEQUELIZE No Front - Importar as models com require.
+
+-
+
+This site was built using [GitHub Pages](https://pages.github.com/)
