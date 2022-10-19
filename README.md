@@ -35,7 +35,7 @@ CRIAR PASTA VIEWS (Esta pasta esta ligada ao res.RENDER), onde criamos os arquiv
 
 Exemplo: 
 
-##### INDEX.JS
+<details><summary>INDEX.JS</summary>
 ```
 app.get("/:param1",(req,res)=>{
 
