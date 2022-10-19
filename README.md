@@ -1,11 +1,11 @@
-#NODE
+# NODE
 
 ## Express
 
+NPM I EXPRESS --save
 É um framework para Node.js que fornece recursos mínimos para construção de servidores web
-INSTALL = NPM I EXPRESS --save
-1 - Fornece métodos para especificar qual função é chamada quando chega requisição HTTP (GET, POST, SET, etc.) e de rotas e métodos para especificar o mecanismo de modelo ("view") usado, onde o modelo arquivos estão localizados e qual modelo usar para renderizar uma resposta. Você pode usar o middleware Express para adicionar suporte para cookies, sessões e usuários, obtendo parâmetros POST / GET, etc.
-2 - Rotas, Parametros,
+Fornece métodos para especificar qual função é chamada quando chega requisição HTTP (GET, POST, SET, etc.) e de rotas e métodos para especificar o mecanismo de modelo ("view") usado, onde o modelo arquivos estão localizados e qual modelo usar para renderizar uma resposta. Você pode usar o middleware Express para adicionar suporte para cookies, sessões e usuários, obtendo parâmetros POST / GET, etc.
+
 ------------------------------------------------------------------------------------------------------------------------
 ## MYSQL
 
@@ -95,12 +95,12 @@ Const Pergunta = connection.define('nome_da_tabela',`{
 Pergunta.Sync({force: false}).then.catch
 module.exports = Pergunta
 
-4
-NO INDEX.JS: const PergutaModel = require(caminho)
+### NO INDEX.JS
+	
+const PergutaModel = require("caminho_do_arquivo_Model")
 O model sera executado assim que o Index.js for solicitado.
 
-5
-Salvar dados do form na tabela
+#### Salvar dados do form na tabela
 app.post("/",(req.res)=>{
 	var 1 = req.body.campo1
 	var 2 = req.body.campo2
@@ -111,28 +111,27 @@ app.post("/",(req.res)=>{
 }).then.catch
 })
 
-6
-Pesquisando dados na tabela
+#### Pesquisando dados na tabela
 Pergunta.findAll({ order:['id','DESC'] }).then(perguntas => {
 	res.render("index",{
 	perguntas: perguntas
 })
 })catch
 
-7
-Pesquisando 1 dado na tabela
+#### Pesquisando 1 dado na tabela
 Pergunta.findOne({where: {id:id }}).then(pergunta => {
 	res.render("pergunta",{
 	pergunta: pergunta
 
-8
-NO INDEX.JS chamamos assim 
+#### Mostrando na Tela
 	<% perguntas.forEach(pergunta => { %>
 		<p> <%= pergunta.titulo %> </p>
 	<% } %>
 
 ------------------------------------------------------------------------------------------------------------
-Controllers - são arquivos que separam a logica das ROTAS do projeto, para não ficar tudo no index.js
+## Controllers 
+
+são arquivos que separam a logica das ROTAS do projeto, para não ficar tudo no index.js
 
 Iniciando: Crie uma pasta, e add os controllers dentro dela(ExemploController.js). Apos isso, entre no Index.js, importe as controllers,
 com require, e assim voce podera usa-las desta maneira:
@@ -145,11 +144,12 @@ module.exports = router;
 
 ---------------------------------------------------------------------------------------------------------------
 
-Models e controllers, utilizam a mesma pasta
+### Models e controllers, utilizam a mesma pasta
 
 ---------------------------------------------------------------------------------------------------------------
 
-MODELS - Crie o arquivo Model (Exemplo.js)
+## MODELS 
+Crie o arquivo Model (Exemplo.js)
 
 Const Exemplo = connection.define('nome_da_tabela',`{
 	titulo:{
@@ -165,11 +165,13 @@ module.exports = Exemplo
 
 --------------------------------------------------------------------------------------------------------------------
 
-RELACIONAMENTOS - 1p1, 1pM, MpM.
+## RELACIONAMENTOS 
+1p1, 1pM, MpM.
+		
+### NO SEQUELIZE
+hasOne (tem um) - Exemplo: Pessoa possui uma Crush
+belongsTo (pertence a) - Exemplo: Crush pertence a uma Pessoa
+hasMany (tem muitos) - Exemplo: uma pessoa pode ter vários crushs.
+belongsToMany (pertence a muitos) - Exemplo: Pessoas, pode possuir vários Crushs E Crushs podem pertencer a várias Perssoas
 
-1p1, Voce precisa importar dentro do MODEL1, o MODEL2. (Exemplo: Tab_Artigo Importa Tab_Category)
-
-NO SEQUELIZE - Model1.hasMany(Model2) O Model1 tem varios Model2
-		   Model2.belongsTo(Model1) O Model 2 pertence ao Model1
-
-SEQUELIZE No Front - Importar as duas models. 
+SEQUELIZE No Front - Importar as models com require.
