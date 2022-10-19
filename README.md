@@ -1,5 +1,8 @@
-## Express - é um framework para Node.js que fornece recursos mínimos para construção de servidores web
+#NODE
 
+## Express
+
+É um framework para Node.js que fornece recursos mínimos para construção de servidores web
 INSTALL = NPM I EXPRESS --save
 1 - Fornece métodos para especificar qual função é chamada quando chega requisição HTTP (GET, POST, SET, etc.) e de rotas e métodos para especificar o mecanismo de modelo ("view") usado, onde o modelo arquivos estão localizados e qual modelo usar para renderizar uma resposta. Você pode usar o middleware Express para adicionar suporte para cookies, sessões e usuários, obtendo parâmetros POST / GET, etc.
 2 - Rotas, Parametros,
