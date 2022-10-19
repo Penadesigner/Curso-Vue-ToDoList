@@ -14,7 +14,7 @@ INSTALL BIBLIOTECA PARA USO DO SEQUELIZE: NPM I MYSQL2 --save
 CONF: Adiciona o PATH nas confs avancadas
 
 ------------------------------------------------------------------------------------------------------------------------
-##EJS 
+## EJS 
 Template Engine - Renderiza HTML 
 
 INSTALL: NPM I EJS --save
@@ -52,22 +52,22 @@ INDEX.EJS
 <% } %>
 
 ------------------------------------------------------------------------------------------------------------------------
-##Arquivos Estaticos 
+## Arquivos Estaticos 
 
 app.set(express.static("public")) > Criar pasta public na raiz
 
 ------------------------------------------------------------------------------------------------------------------------
-##Partials
+## Partials
 
 COMEÇAR: Crie uma pasta "partials" dentro da pasta VIEWS 
 USAR: dentro do index.js, voce chama a partial assim <%- include("partials/nomearquivo.ejs" %>
 
 ------------------------------------------------------------------------------------------------------------------------
-##Sequelize
+## Sequelize
 
 Manipulador de banco de dados
 
-###COMEÇAR: 
+### COMEÇAR: 
 Cria arquivo Database > na pasta Database > const sequelize - require("sequelize") > const connection = new sequelize('banco_name','user','senha',{
 	host: localhost,
 	dialect: mysql,
@@ -76,12 +76,12 @@ Cria arquivo Database > na pasta Database > const sequelize - require("sequelize
 module.exports = connection
 O model representa a tabela
 
-###NO INDEX.JS 
+### NO INDEX.JS 
 Chama o arquivo de conexão > const connection = require("caminho do arquivo")
 							connection.authenticate().then(()=>{}).catch(()=>{})
 
 
-###CRIANDO MODEL
+### CRIANDO MODEL
 Novo arquivo Pergunta.js, na pasta Database > Const sequelize - Const connection
 
 Const Pergunta = connection.define('nome_da_tabela',`{
