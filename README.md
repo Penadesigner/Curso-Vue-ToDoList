@@ -195,6 +195,7 @@ belongsToMany (pertence a muitos) - Exemplo: Pessoas, pode possuir vários Crush
 
 SEQUELIZE No Front - Importar as models com require.
 
--
+--
+---
 
 This site was built using [GitHub Pages](https://pages.github.com/)
