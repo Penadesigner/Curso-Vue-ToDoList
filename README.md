@@ -18,10 +18,15 @@ CONF: Adiciona o PATH nas confs avancadas
 Template Engine - Renderiza HTML 
 
 INSTALL: NPM I EJS --save
-CONF: app.set('view  engine','ejs')
-CRIAR PASTA VIEWS(Esta pasta esta ligada ao res.RENDER), onde criamos os arquivos .EJS)
+CONF: 
+```
+app.set('view  engine','ejs')
+```
+CRIAR PASTA VIEWS (Esta pasta esta ligada ao res.RENDER), onde criamos os arquivos .EJS. 
 Exemplo: 
-INDEX.JS
+
+##### INDEX.JS
+```
 app.get("/:param1",(req,res)=>{
 
 	var params = req.params.param1
@@ -39,7 +44,9 @@ app.get("/:param1",(req,res)=>{
 		produtos: array
 }
 }
-INDEX.EJS
+```
+##### INDEX.EJS
+```
 <p>Nome: <%= params %></p>
 
 <% if(boolean) { %>
@@ -50,7 +57,7 @@ INDEX.EJS
 	<%= produto.nome %>
 	<%= produto.idade %>
 <% } %>
-
+```
 ------------------------------------------------------------------------------------------------------------------------
 ## Arquivos Estaticos 
 
@@ -68,12 +75,15 @@ USAR: dentro do index.js, voce chama a partial assim <%- include("partials/nomea
 Manipulador de banco de dados
 
 ### COMEÇAR: 
-Cria arquivo Database > na pasta Database > const sequelize - require("sequelize") > const connection = new sequelize('banco_name','user','senha',{
+Cria arquivo Database > na pasta Database > const sequelize - require("sequelize") > 
+```
+const connection = new sequelize('banco_name','user','senha',{
 	host: localhost,
 	dialect: mysql,
 	logging: false
 })
 module.exports = connection
+```
 O model representa a tabela
 
 ### NO INDEX.JS 
@@ -83,7 +93,7 @@ Chama o arquivo de conexão > const connection = require("caminho do arquivo")
 
 ### CRIANDO MODEL
 Novo arquivo Pergunta.js, na pasta Database > Const sequelize - Const connection
-
+```
 Const Pergunta = connection.define('nome_da_tabela',`{
 	titulo:{
 		type: Sequelize.String,
@@ -94,42 +104,47 @@ Const Pergunta = connection.define('nome_da_tabela',`{
 })
 Pergunta.Sync({force: false}).then.catch
 module.exports = Pergunta
-
+```
 ### NO INDEX.JS
-	
+```	
 const PergutaModel = require("caminho_do_arquivo_Model")
+```
 O model sera executado assim que o Index.js for solicitado.
 
 #### Salvar dados do form na tabela
+```
 app.post("/",(req.res)=>{
 	var 1 = req.body.campo1
 	var 2 = req.body.campo2
-	
+
 	Pergunta.create({
 	campo1: 1,
 	campo2: 2
 }).then.catch
 })
-
+```
 #### Pesquisando dados na tabela
 ```
-	Pergunta.findAll({ order:['id','DESC'] })
-	   .then(perguntas => {
-		res.render("index",{
-		    perguntas: perguntas
-		})
-	})catch
+Pergunta.findAll({ order:['id','DESC'] })
+   .then(perguntas => {
+	res.render("index",{
+	    perguntas: perguntas
+	})
+})catch
 ```
 #### Pesquisando 1 dado na tabela
-Pergunta.findOne({where: {id:id }}).then(pergunta => {
+```
+Pergunta.findOne({where: {id:id }})
+    .then(pergunta => {
 	res.render("pergunta",{
-	pergunta: pergunta
-
+		pergunta: pergunta
+```
 #### Mostrando na Tela
-	<% perguntas.forEach(pergunta => { %>
-		<p> <%= pergunta.titulo %> </p>
-	<% } %>
-
+```
+<% perguntas.forEach(pergunta => { %>
+	<p> <%= pergunta.titulo %> </p>
+<% } %>
+```
 ------------------------------------------------------------------------------------------------------------
 ## Controllers 
 
@@ -137,12 +152,14 @@ são arquivos que separam a logica das ROTAS do projeto, para não ficar tudo no
 
 Iniciando: Crie uma pasta, e add os controllers dentro dela(ExemploController.js). Apos isso, entre no Index.js, importe as controllers,
 com require, e assim voce podera usa-las desta maneira:
+```
 app.use("/caminhoquevocequsier",Nome_da_Controller_Importada);
-
+```
 Dentro do Controller, nos precisamos Chamarar a:
+```
 Const router = express.Router()
 module.exports = router;
-
+```
 
 ---------------------------------------------------------------------------------------------------------------
 
@@ -152,7 +169,7 @@ module.exports = router;
 
 ## MODELS 
 Crie o arquivo Model (Exemplo.js)
-
+```
 Const Exemplo = connection.define('nome_da_tabela',`{
 	titulo:{
 		type: Sequelize.String,
@@ -163,7 +180,7 @@ Const Exemplo = connection.define('nome_da_tabela',`{
 })
 Exemplo.Sync({force: false}).then.catch
 module.exports = Exemplo
-
+```
 
 --------------------------------------------------------------------------------------------------------------------
 
