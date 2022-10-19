@@ -112,12 +112,14 @@ app.post("/",(req.res)=>{
 })
 
 #### Pesquisando dados na tabela
-Pergunta.findAll({ order:['id','DESC'] }).then(perguntas => {
-	res.render("index",{
-	perguntas: perguntas
-})
-})catch
-
+```
+	Pergunta.findAll({ order:['id','DESC'] })
+	   .then(perguntas => {
+		res.render("index",{
+		    perguntas: perguntas
+		})
+	})catch
+```
 #### Pesquisando 1 dado na tabela
 Pergunta.findOne({where: {id:id }}).then(pergunta => {
 	res.render("pergunta",{
