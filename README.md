@@ -35,7 +35,7 @@ CRIAR PASTA VIEWS (Esta pasta esta ligada ao res.RENDER), onde criamos os arquiv
 
 Exemplo: 
 
-<details><summary>INDEX.JS</summary>
+##### INDEX.JS<
 ```
 app.get("/:param1",(req,res)=>{
 
@@ -54,9 +54,9 @@ app.get("/:param1",(req,res)=>{
 		produtos: array
 }
 }
-</details>	
+
 ```
-<details><summary>INDEX.EJS</summary>
+##### INDEX.EJS
 ```
 <p>Nome: <%= params %></p>
 
@@ -69,7 +69,7 @@ app.get("/:param1",(req,res)=>{
 	<%= produto.idade %>
 <% } %>
 ```
-</details>
+
 ------------------------------------------------------------------------------------------------------------------------
 ## Arquivos Estaticos 
 
