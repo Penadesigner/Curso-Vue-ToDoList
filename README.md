@@ -228,5 +228,12 @@ belongsToMany (pertence a muitos) - Exemplo: Pessoas, pode possuir vários Crush
 SEQUELIZE No Front - Importar as models com require.
 
 --------------------------------------------------------------------------------------------------------------------
+## SLUGIFY
+
+```
+const slugify = require("slugify")
+
+slug: slugify
+```
 
 This site was built using [GitHub Pages](https://pages.github.com/)
