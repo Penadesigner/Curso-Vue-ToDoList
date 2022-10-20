@@ -104,7 +104,13 @@ const connection = new sequelize('banco_name','user','senha',{
 module.exports = connection
 ```
 
-O model representa a tabela
+### JOINS
+
+```
+Article.findAll({include: [{model: Category}]})
+    .then(article => {
+	res.render("pergunta",{article: article})
+```
 
 ### NO INDEX.JS 
 
