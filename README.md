@@ -4,7 +4,7 @@ NPM I EXPRESS --save
 
 Fornece recursos mínimos para construção de servidores web, e métodos para especificar qual função é chamada quando chega requisição HTTP (GET, POST, SET, etc.) e de rotas e métodos para especificar o mecanismo de modelo ("view") usado, onde o modelo arquivos estão localizados e qual modelo usar para renderizar uma resposta. Você pode usar o middleware Express para adicionar suporte para cookies, sessões e usuários, obtendo parâmetros POST / GET, etc.
 
-#### SESSIONS
+##### SESSIONS
 
 ```
 const sessions = require("express-session")
@@ -93,7 +93,7 @@ USAR: dentro do index.js, voce chama a partial assim:
 
 Manipulador de banco de dados
 
-### COMEÇAR: 
+##### COMEÇAR: 
 
 Cria arquivo Database > na pasta Database >  > 
 
@@ -108,7 +108,7 @@ const connection = new sequelize('banco_name','user','senha',{
 module.exports = connection
 ```
 
-### JOINS
+##### JOINS
 
 ```
 Article.findAll({include: [{model: Category}]})
@@ -116,7 +116,7 @@ Article.findAll({include: [{model: Category}]})
 	res.render("pergunta",{article: article})
 ```
 
-### NO INDEX.JS 
+##### NO INDEX.JS 
 
 Chama o arquivo de conexão > 
 ```
@@ -124,7 +124,7 @@ const connection = require("caminho do arquivo")
 connection.authenticate().then(()=>{}).catch(()=>{})
 ```
 
-### CRIANDO MODEL
+##### CRIANDO MODEL
 
 Novo arquivo Pergunta.js, na pasta Database > Const sequelize - Const connection
 ```
@@ -140,14 +140,14 @@ Pergunta.Sync({force: false}).then.catch
 module.exports = Pergunta
 ```
 
-### NO INDEX.JS
+##### NO INDEX.JS
 ```	
 const PergutaModel = require("caminho_do_arquivo_Model")
 ```
 
 O model sera executado assim que o Index.js for solicitado.
 
-#### Salvar dados do form na tabela
+##### Salvar dados do form na tabela
 
 ```
 app.post("/",(req.res)=>{
@@ -160,7 +160,7 @@ app.post("/",(req.res)=>{
 }).then.catch
 })
 ```
-#### Pesquisando dados na tabela
+##### Pesquisando dados na tabela
 
 ```
 Pergunta.findAll({ order:['id','DESC'] })
@@ -170,7 +170,7 @@ Pergunta.findAll({ order:['id','DESC'] })
 	})
 })catch
 ```
-#### Pesquisando 1 dado na tabela
+##### Pesquisando 1 dado na tabela
 
 ```
 Pergunta.findOne({where: {id:id }})
@@ -178,7 +178,7 @@ Pergunta.findOne({where: {id:id }})
 	res.render("pergunta",{
 		pergunta: pergunta
 ```
-#### Mostrando na Tela
+##### Mostrando na Tela
 
 ```
 <% perguntas.forEach(pergunta => { %>
@@ -195,7 +195,9 @@ exemplo.destroy({where: {id: id}})
 exemplo.findByPk(id)
 
 exemplo.update({campoAtualizar: campoAtualizar},{where: {id: id}})
+
 ------------------------------------------------------------------------------------------------------------
+
 ## Controllers 
 
 são arquivos que separam a logica das ROTAS do projeto, para não ficar tudo no index.js
@@ -241,7 +243,7 @@ module.exports = Exemplo
 
 1p1, 1pM, MpM.
 		
-#### NO SEQUELIZE
+##### NO SEQUELIZE
 hasOne (tem um) - Exemplo: Pessoa possui uma Crush
 belongsTo (pertence a) - Exemplo: Crush pertence a uma Pessoa
 hasMany (tem muitos) - Exemplo: uma pessoa pode ter vários crushs.
