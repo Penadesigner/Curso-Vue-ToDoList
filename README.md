@@ -91,13 +91,15 @@ Manipulador de banco de dados
 
 ### COMEÇAR: 
 
-Cria arquivo Database > na pasta Database > const sequelize - require("sequelize") > 
+Cria arquivo Database > na pasta Database >  > 
 
 ```
+]const sequelize - require("sequelize")
 const connection = new sequelize('banco_name','user','senha',{
 	host: localhost,
 	dialect: mysql,
-	logging: false
+	logging: false,
+	timezone: '-03:00' // ajusta o horario conforme no brasil
 })
 module.exports = connection
 ```
