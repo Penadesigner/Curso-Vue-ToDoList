@@ -2,10 +2,7 @@
 
 NPM I EXPRESS --save
 
-É um framework para Node.js que fornece recursos mínimos para construção de servidores web
-
-Fornece métodos para especificar qual função é chamada quando chega requisição HTTP (GET, POST, SET, etc.) e de rotas e métodos para especificar o mecanismo de modelo ("view") usado, onde o modelo arquivos estão localizados e qual modelo usar para renderizar uma resposta. Você pode usar o middleware 
-Express para adicionar suporte para cookies, sessões e usuários, obtendo parâmetros POST / GET, etc.
+Fornece recursos mínimos para construção de servidores web, e métodos para especificar qual função é chamada quando chega requisição HTTP (GET, POST, SET, etc.) e de rotas e métodos para especificar o mecanismo de modelo ("view") usado, onde o modelo arquivos estão localizados e qual modelo usar para renderizar uma resposta. Você pode usar o middleware Express para adicionar suporte para cookies, sessões e usuários, obtendo parâmetros POST / GET, etc.
 
 #### SESSIONS
 
