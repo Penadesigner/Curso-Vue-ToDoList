@@ -173,6 +173,16 @@ Pergunta.findOne({where: {id:id }})
 	<p> <%= pergunta.titulo %> </p>
 <% } %>
 ```
+
+##### CRUD 
+
+exemplo.create({campo1: 1,campo2: 2}).then.catch
+
+exemplo.destroy({where: {id: id}})
+
+exemplo.findByPk(id)
+
+exemplo.update({campoAtualizar: campoAtualizar},{where: {id: id}})
 ------------------------------------------------------------------------------------------------------------
 ## Controllers 
 
@@ -234,6 +244,21 @@ SEQUELIZE No Front - Importar as models com require.
 const slugify = require("slugify")
 
 slug: slugify(var_name)
+```
+
+--------------------------------------------------------------------------------------------------------------------
+
+## TINY MCE
+
+Download: https://www.tiny.cloud/get-tiny/self-hosted/ > Baixar o Community
+
+COMEÇANDO: Coloque os arquivos do Tiny dentro da pasta public do seu projeto.
+
+```
+tinymce.init({
+	selector: #id_do_elemento,
+	plugins: [autolink link image etc]
+})
 ```
 
 This site was built using [GitHub Pages](https://pages.github.com/)
