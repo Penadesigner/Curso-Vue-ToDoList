@@ -1,5 +1,3 @@
-# NODE
-
 ## Express
 
 NPM I EXPRESS --save
@@ -8,6 +6,15 @@ NPM I EXPRESS --save
 
 Fornece métodos para especificar qual função é chamada quando chega requisição HTTP (GET, POST, SET, etc.) e de rotas e métodos para especificar o mecanismo de modelo ("view") usado, onde o modelo arquivos estão localizados e qual modelo usar para renderizar uma resposta. Você pode usar o middleware 
 Express para adicionar suporte para cookies, sessões e usuários, obtendo parâmetros POST / GET, etc.
+
+#### SESSIONS
+
+```
+const sessions = require("express-session")
+app.use(sessions({
+	secret: "husahusahusahudhufasfaifaoi". cookie: {maxAge: 30000}
+}))
+```
 
 ------------------------------------------------------------------------------------------------------------------------
 ## MYSQL
@@ -269,5 +276,9 @@ tinymce.init({
 	plugins: [autolink link image etc]
 })
 ```
+
+------------------------------------------------------------------------------------------------------------------
+
+
 
 This site was built using [GitHub Pages](https://pages.github.com/)
