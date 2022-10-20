@@ -256,6 +256,7 @@ COMEÇANDO: Coloque os arquivos do Tiny dentro da pasta public do seu projeto.
 
 ```
 tinymce.init({
+	language: 'pt_br',
 	selector: #id_do_elemento,
 	plugins: [autolink link image etc]
 })
