@@ -259,6 +259,15 @@ SEQUELIZE No Front - Importar as models com require.
 
 Uma funçao que age no meio da requisição REQ RES, entre a comunicação do usuario e a rota. Ajuda criar autorização em rotas por exemplo
 
+Crie sua pasta "middleware" > depois seu arquivo "xAutenticate.js" > Crie sua função dentro deste arquivo
+
+```
+function middleware(req, res, next){
+	next() 
+	> o next serve para passar a requisição a diante
+}
+```
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## REDIS 
