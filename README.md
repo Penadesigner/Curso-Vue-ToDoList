@@ -6,6 +6,8 @@ Fornece recursos mínimos para construção de servidores web, e métodos para e
 
 ##### SESSIONS
 
+NPM i EXPRESS-SESSION
+
 ```
 const sessions = require("express-session")
 app.use(sessions({
@@ -250,6 +252,18 @@ hasMany (tem muitos) - Exemplo: uma pessoa pode ter vários crushs.
 belongsToMany (pertence a muitos) - Exemplo: Pessoas, pode possuir vários Crushs E Crushs podem pertencer a várias Perssoas
 
 SEQUELIZE No Front - Importar as models com require.
+
+--------------------------------------------------------------------------------------------------------------------
+
+## MIDDLEWARE
+
+Uma funçao que age no meio da requisição REQ RES, entre a comunicação do usuario e a rota. Ajuda criar autorização em rotas por exemplo
+
+--------------------------------------------------------------------------------------------------------------------
+
+## REDIS 
+
+Banco focado em armazenamento de sessoes e cache.
 
 --------------------------------------------------------------------------------------------------------------------
 ## SLUGIFY
