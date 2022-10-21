@@ -261,10 +261,11 @@ Uma funçao que age no meio da requisição REQ RES, entre a comunicação do us
 
 Crie sua pasta "middleware" > depois seu arquivo "xAutenticate.js" > Crie sua função dentro deste arquivo
 
+> o next serve para passar a requisição a diante
+
 ```
 function middleware(req, res, next){
 	next() 
-	> o next serve para passar a requisição a diante
 }
 ```
 
