@@ -275,6 +275,14 @@ function middleware(req, res, next){
 module.exports = middleware;
 ```
 
+Importe o middleware na pagina do Controller, e quando quiser usa-lo.
+
+```
+const Auth = require(/middleware/xAutenticate.js)
+
+app.get(/posts, Auth, (req, res)=>{})
+```
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## REDIS 
@@ -282,6 +290,17 @@ module.exports = middleware;
 Banco focado em armazenamento de sessoes e cache.
 
 --------------------------------------------------------------------------------------------------------------------
+
+## API 
+
+Um forma de comunicação entre dois pontos
+
+--------------------------------------------------------------------------------------------------------------------
+
+> Das bibliotecas estudadas, estão o Sequelize e o TypeORM, que são do tipo mapeamento objeto-relacional (Object-Relational Mapping — ORM). Também foram analisadas a biblioteca Knex.js, que é do tipo construtor de consulta (Query Builder). E por fim, Node-postgres (pg), um driver de conexão direta com banco de dados para execução de queries.
+
+--------------------------------------------------------------------------------------------------------------------
+
 ## SLUGIFY
 
 ```
