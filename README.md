@@ -265,7 +265,11 @@ Crie sua pasta "middleware" > depois seu arquivo "xAutenticate.js" > Crie sua fu
 
 ```
 function middleware(req, res, next){
-	next() 
+	if(req.session.user){
+		next() 
+	} else {
+		res.redirect("/")
+	}	
 }
 ```
 
