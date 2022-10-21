@@ -280,7 +280,7 @@ tinymce.init({
 
 ## VITE
 
-Vite (palavra francesa para "rápido", pronunciada/vit/, como "veet") é uma ferramenta de construção que visa fornecer uma experiência de desenvolvimento mais rápida e enxuta para projetos web modernos. É composto por duas partes principais:
+Vite é uma ferramenta de construção que visa fornecer uma experiência de desenvolvimento mais rápida e enxuta para projetos web modernos. É composto por duas partes principais:
 
 Um servidor de desenvolvimento que fornece aprimoramentos de recursos avançados em módulos ES nativos , por exemplo, Hot Module Replacement (HMR) extremamente rápido .
 
