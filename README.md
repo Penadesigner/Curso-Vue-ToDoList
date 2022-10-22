@@ -287,12 +287,20 @@ app.get(/posts, Auth, (req, res)=>{})
 
 ## AXIOS
 
+NPM I AXIOS
+
 Ele serve para consumir dados de uma API
+
+```
+
+axios.get("url/rota").then.catch
+
+```
 
 --------------------------------------------------------------------------------------------------------------------
 
 
-## CORS 
+	## CORS 
 
 NPM I CORS
 
