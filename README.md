@@ -287,6 +287,22 @@ app.get(/posts, Auth, (req, res)=>{})
 
 ## AXIOS
 
+Ele serve para consumir dados de uma API
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+## CORS 
+
+NPM I CORS
+
+Mecanismo de segurança, que existe em aplicações HTTP, que bloqueia requisições de maneira externa.
+
+```
+const cors = require("cors")
+app.use(cors())
+```
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## REDIS 
@@ -297,7 +313,7 @@ Banco focado em armazenamento de sessoes e cache.
 
 ## API 
 
-Um forma de comunicação entre dois pontos
+Um forma de comunicação entre dois pontos, ponto de distribuição de dados.
 
 --------------------------------------------------------------------------------------------------------------------
 
