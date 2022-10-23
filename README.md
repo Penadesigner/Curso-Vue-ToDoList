@@ -446,6 +446,13 @@ app.use(cors())
 
 ## JWT 
 
+NPM I jsonwebtoken
+
+```
+const jwt = require("jsonwebtoken")
+
+const JWTsecret = "sasaashuahsuajsiaishuasa"
+```
 --------------------------------------------------------------------------------------------------------------------
 
 ## REDIS 
