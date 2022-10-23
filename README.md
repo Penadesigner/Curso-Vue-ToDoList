@@ -291,11 +291,91 @@ NPM I AXIOS
 
 Ele serve para consumir dados de uma API
 
-```
-
-axios.get("url/rota").then.catch
+##### Consumindo API
 
 ```
+axios.get("url/rota").then(response => {
+
+}).catch(erro => {
+
+})
+
+```
+
+##### Exibindo no HTML
+
+```
+axios.get("url/rota").then(response => {
+	var games = response.data
+	var list = document.getElementById("id_do_elemento")
+	
+	games.forEach(game => {
+		var item = document.createElement("li")
+		item.innerHTML = game.id + game.nome + game.etc
+		list.appendChild(item)
+	})
+}).catch(erro => {
+
+})
+
+```
+
+
+##### Exibindo no HTML
+
+```
+axios.get("url/rota").then(response => {
+
+})
+}).catch(erro => {
+
+})
+
+```
+
+##### Criando novo game
+
+```
+var nome = document.getElementById("nome")
+var ano = document.getElementById("ano")
+var game = {
+	nomeGame: nome
+	anoGame: ano
+}
+
+axios.get("url/rota", GAME).then(response => {
+
+})
+}).catch(erro => {
+
+})
+
+```
+##### Atributos customizaveis
+
+```
+axios.get("url/rota").then(response => {
+	var games = response.data
+	var list = document.getElementById("id_do_elemento")
+	
+	games.forEach(game => {
+		var item = document.createElement("li")
+		item.innerHTML = game.id + game.nome + game.etc
+		list.appendChild(item)
+		
+		**var deletarBtn = document.createElement("button")**
+		**deletarBtn.innerHTML("deletar")**
+		**item.appendChild(deletarBtn)**
+		
+	})
+}).catch(erro => {
+
+})
+
+
+```
+
+
 
 --------------------------------------------------------------------------------------------------------------------
 
