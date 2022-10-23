@@ -289,7 +289,7 @@ app.get(/posts, Auth, (req, res)=>{})
 
 NPM I AXIOS
 
-Ele serve para consumir dados de uma API
+Ele serve para consumir dados de uma API, baseado nas rotas criadas na API, o axios consome os dados usando os metodos GET POST DELETE PUT
 
 ##### Consumindo API
 
@@ -320,20 +320,9 @@ axios.get("url/rota").then(response => {
 
 ```
 
-
-##### Exibindo no HTML
-
-```
-axios.get("url/rota").then(response => {
-
-})
-}).catch(erro => {
-
-})
-
-```
-
 ##### Criando novo game
+
+Baseado em um formulario com os campos Nome e Ano
 
 ```
 var nome = document.getElementById("nome")
@@ -354,6 +343,7 @@ axios.get("url/rota", GAME).then(response => {
 ##### Atributos customizaveis
 
 ```
+
 axios.get("url/rota").then(response => {
 	var games = response.data
 	var list = document.getElementById("id_do_elemento")
@@ -361,11 +351,73 @@ axios.get("url/rota").then(response => {
 	games.forEach(game => {
 		var item = document.createElement("li")
 		item.innerHTML = game.id + game.nome + game.etc
+		item.setAttribute("data-id", game.id)
+		list.appendChild(item)
+				
+	})
+}).catch(erro => {
+
+})
+
+
+```
+
+##### Deletar
+
+```
+function deletarGame(listItem){
+	var id = listItem.getAttribute("data-id")
+	axios.deletar("url/rota_deletar"+ id ).then(response => {
+	}).catch(erro => {
+	})
+}
+
+axios.get("url/rota").then(response => {
+	var games = response.data
+	var list = document.getElementById("id_do_elemento")
+	
+	games.forEach(game => {
+		var item = document.createElement("li")
+		item.innerHTML = game.id + game.nome + game.etc
+		item.setAttribute("data-id", game.id)
 		list.appendChild(item)
 		
-		**var deletarBtn = document.createElement("button")**
-		**deletarBtn.innerHTML("deletar")**
-		**item.appendChild(deletarBtn)**
+		var deletarBtn = document.createElement("button")
+		deletarBtn.innerHTML("deletar")
+		item.appendChild(deletarBtn)
+		deleteBtn.addEventListener("click",function(){deletarGame(item)})
+		
+	})
+}).catch(erro => {
+
+})
+
+
+```
+
+##### Editar
+
+```
+function EditarGame(listItem){
+	var id = listItem.getAttribute("data-id")
+	document.getElementById("campo_id_form_edicao").value = id
+}
+
+axios.get("url/rota").then(response => {
+	var games = response.data
+	var list = document.getElementById("id_do_elemento")
+	
+	games.forEach(game => {
+		var item = document.createElement("li")
+		item.innerHTML = game.id + game.nome + game.etc
+		item.setAttribute("data-id", game.id)
+		list.appendChild(item)
+		
+		// cria um botao onde recebe no html o texto "Editar", e adicona este elemento detro do elemento ITEM
+		var EditarBtn = document.createElement("button")
+		EditarBtn.innerHTML("Editar")
+		item.appendChild(EditarBtn)
+		EditarBtn.addEventListener("click",function(){EditarGame(item)})
 		
 	})
 }).catch(erro => {
@@ -379,8 +431,7 @@ axios.get("url/rota").then(response => {
 
 --------------------------------------------------------------------------------------------------------------------
 
-
-	## CORS 
+## CORS 
 
 NPM I CORS
 
@@ -390,6 +441,10 @@ Mecanismo de segurança, que existe em aplicações HTTP, que bloqueia requisiç
 const cors = require("cors")
 app.use(cors())
 ```
+
+--------------------------------------------------------------------------------------------------------------------
+
+## JWT 
 
 --------------------------------------------------------------------------------------------------------------------
 
