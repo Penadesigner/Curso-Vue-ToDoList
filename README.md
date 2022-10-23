@@ -453,7 +453,9 @@ const jwt = require("jsonwebtoken")
 
 const JWTsecret = "sasaashuahsuajsiaishuasa"
 
-jwt.sign({dados de acesso: game.dado},JWTSecret,{expiresIn: '24h'}
+jwt.sign({dados de acesso: game.dado},JWTSecret,{expiresIn: '24h'},(ERR, TOKEN) => {
+	if(){}else(){}
+}
 ```
 --------------------------------------------------------------------------------------------------------------------
 
