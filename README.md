@@ -200,6 +200,148 @@ exemplo.update({campoAtualizar: campoAtualizar},{where: {id: id}})
 
 ------------------------------------------------------------------------------------------------------------
 
+## KNEX
+
+Comece criando o arquivo database.js
+
+```
+const knex = require("knex")({
+client:'mysql2',
+connection: {
+	host:'',
+	user:'',
+	password:'',
+	database:'',
+}
+})
+
+module.exports = knex;
+```
+
+Importe o arquivo database onde for usar, e comece a usa-lo
+
+##### INSERT
+
+```
+const DB = require("database.js")
+var novo_game = {
+	nome: "gta",
+	ano: 2000
+}
+DB.insert(novo_game).table(nome_tabela).then.catch
+```
+
+##### SELECT
+
+```
+const DB = require("database.js")
+var novo_game = {
+	nome: "gta",
+	ano: 2000
+}
+DB.select(novo_game).table(nome_tabela).then.catch
+```
+
+##### SELECT ORDER BY
+
+```
+const DB = require("database.js")
+var novo_game = {
+	nome: "gta",
+	ano: 2000
+}
+DB.select(novo_game).table(nome_tabela).orderBy({"ano","DESC"})
+```
+
+##### CONSULTA POR CAMPOS ESPECIFICOS
+
+```
+const DB = require("database.js")
+var novo_game = {
+	nome: "gta",
+	ano: 2000
+}
+DB.select({"nome", "ano"}).table(nome_tabela).then.catch
+```
+
+##### CONSULTA COM WHERE
+
+```
+const DB = require("database.js")
+var novo_game = {
+	nome: "gta",
+	ano: 2000
+}
+DB.select({"nome", "ano"}).table(nome_tabela).where({nome: "gta"}).then.catch
+```
+
+##### NESTED QUERY
+
+```
+const DB = require("database.js")
+var novo_game = {
+	nome: "gta",
+	ano: 2000
+}
+
+DB.insert(novo_game).table(nome_tabela).then(() => {
+	DB.select({"nome", "ano"}).table(nome_tabela).then(data => {
+		console.log(data)
+	}).catch(erro => {
+		console.log(erro)
+	})
+}).catch(() => {
+	console.log(erro)
+})
+
+```
+
+
+##### DELETE
+
+```
+const DB = require("database.js")
+var novo_game = {
+	nome: "gta",
+	ano: 2000
+}
+DB.table(nome_tabela).where({nome: "gta"}).delete()then.catch
+```
+
+##### UPDATE
+
+```
+const DB = require("database.js")
+var novo_game = {
+	nome: "gta",
+	ano: 2000
+}
+DB.table(nome_tabela).where({nome: "gta"}).update({ano:2001})then(data=>{}).catch(erro=>{})
+```
+
+##### TRANSACTIONS
+
+```
+const DB = require("database.js")
+
+async function nome_func(){
+	try{
+		await DB.transaction(async transicao => {
+			await DB.insert({nome: "pri"}).table(nome_tabela)
+			await DB.insert({nome: "seg"}).table(nome_tabela)
+			await DB.insert({nome: "ter"}).table(nome_tabela)
+		}
+	} 
+	catch (err){
+		console.log(err)
+	}
+}
+nome_func()
+```
+
+
+------------------------------------------------------------------------------------------------------------
+
 ## Controllers 
 
 são arquivos que separam a logica das ROTAS do projeto, para não ficar tudo no index.js
@@ -472,6 +614,27 @@ Um forma de comunicação entre dois pontos, ponto de distribuição de dados.
 --------------------------------------------------------------------------------------------------------------------
 
 > Das bibliotecas estudadas, estão o Sequelize e o TypeORM, que são do tipo mapeamento objeto-relacional (Object-Relational Mapping — ORM). Também foram analisadas a biblioteca Knex.js, que é do tipo construtor de consulta (Query Builder). E por fim, Node-postgres (pg), um driver de conexão direta com banco de dados para execução de queries.
+
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+## HATEOAS
+
+HATEOAS é um componente que faz parte da arquitetura REST, cujo objetivo é ajudar os clientes a consumirem uma API sem a necessidade de conhecimento prévio, a partir de um lista de links que criamos assim:
+
+```
+var HATEOAS = [
+{
+href: "localhost/rota"
+method: Post	
+rel: Descreve o que faz o link
+},
+]
+
+res.json({ dados.id: id, links: HATEOAS })
+
+```
 
 --------------------------------------------------------------------------------------------------------------------
 
