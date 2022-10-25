@@ -341,8 +341,85 @@ nome_func()
 ------------------------------------------------------------------------------------------------------------
 
 ## VUE
+```
+npm i -g @vue/cli
+vue create nome_projeto
+cd nome_projeto
+npm run serve
+```
 
-Usar extensão VETUR no Visual Studio.
+Usar extensão VUE (VETUR) no Visual Studio.
+
+##### Componente
+
+Os arquivos .vue são componentes dentro deles temos a estrutura:
+
+```
+<template></template>
+<script>
+export default {} // Exporta por padrao este componente que estamos criando
+</script>
+<style></style>
+```
+
+Importando o componente
+
+```
+<script>
+import Nome_componente from './components/Nome_componente'
+export default {
+	components: {
+		Nome_componente
+	}
+}
+</script>
+```
+
+Usando o componente
+
+```
+<template>
+	<Nome_componente/>
+</template>
+```
+
+
+###### Reatividade
+
+Interpolação {{}}
+
+```
+<template>
+	<p>{{ nome }}</p>
+	<p>{{ idade }}</p>
+</template>
+
+<script>
+export default {
+	data(){
+		return {
+			nome: "pena",
+			idade: "28"
+		}
+	}
+}
+</script>
+```
+
+###### DATA BINDING
+
+ONE WAY
+```
+<input type="text" :value="nome">
+```
+
+TWO WAY - Funciona mais em formularios, permite alterar os dados das variaveis e muda o conteudo automaticamente em quanto digita.
+
+```
+<input type="text" v-model="nome">
+
+<p>{{ nome }}</p>
+```
 
 ------------------------------------------------------------------------------------------------------------
 
@@ -365,6 +442,7 @@ module.exports = router;
 ---------------------------------------------------------------------------------------------------------------
 
 >  **Models** e **Controllers**, utilizam a mesma pasta
+>  
 
 ---------------------------------------------------------------------------------------------------------------
 
