@@ -406,6 +406,7 @@ export default {
 </script>
 ```
 
+
 ###### DATA BINDING
 
 ONE WAY
@@ -420,6 +421,113 @@ TWO WAY - Funciona mais em formularios, permite alterar os dados das variaveis e
 
 <p>{{ nome }}</p>
 ```
+
+
+###### PROPS
+
+<template>
+	<p>{{ nome }}</p>
+	<p>{{ idade }}</p>
+	<p>{{ escola }}</p>
+</template>
+
+<script>
+export default {
+	data(){
+		return {
+			escola: "napologicos"
+		}
+	},
+	props: {
+		nome: String,
+		idade: Number
+	}
+}
+</script>
+
+// APP.VUE
+
+
+<template>
+	<Nome_componente nome="Pedro"/>
+	<Nome_componente nome="Matheus"/>
+</template>
+
+```
+
+
+###### CONDIÇOES
+
+V-IF, V-ELSE, V-ELSE-IF, V-SHOW
+
+```
+<template>
+	<p v-if="showIdade"> Idade</p>
+	<p v-else=> Nada aqui</p>
+</template>
+
+<script>
+export default {
+	data(){return {}},
+	props: {
+		showIdade: Boolean
+	}
+}
+</script>
+
+```
+
+
+###### CLASSES CONDICIONAIS
+
+```
+<template>
+	<p :class="{'classe_css1': !premium, 'classe_css2': premium}"> TEXTO</p>
+</template>
+
+<script>
+export default {
+	data(){return {
+		premium: false
+	}},
+}
+</script>
+
+```
+
+
+###### LOOP V-FOR COM EDIÇÂO DE CONTEUDO
+
+```
+<template>
+<div v-for="cliente in clientes" :key="cliente.id">
+	<Cliente :prop_name="cliente"/>
+	<input type="text" v-model="cliente.nome">
+	<input type="number" v-model="cliente.idade">
+</div>
+</template>
+
+<script>
+export default {
+	data(){return {
+		clientes: [
+		{
+		id: 1,
+		nome: "guu",
+		idade: "12"
+		},
+		{
+		id: 2,
+		nome: "Cab",
+		idade: "34"
+		}
+	]
+	}},
+}
+</script>
+
+```
+
 
 ------------------------------------------------------------------------------------------------------------
 
