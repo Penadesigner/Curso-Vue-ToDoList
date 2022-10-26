@@ -528,6 +528,74 @@ export default {
 
 ```
 
+###### EVENTOS
+
+Este evento muda a cor de um elemento ao clicar no botao, a partir do metodo. Os eventos sempre retornam um dado.
+
+```
+<template>
+	<p :class="{'classe_css1': !premium, 'classe_css2': premium}"> TEXTO</p>
+	<button @click="funcao_nome($event)"> TEXTO</p> // $event e uma variavel reservada do vue para passar informaçoes do evento.
+</template>
+
+<script>
+export default {
+	data(){return {
+		premium: false
+		}
+	},
+	methods: {
+		funcao_nome: function($event){
+			console.log($event)
+			this.premium = !this.premium
+		}
+	}
+}
+</script>
+
+```
+
+
+###### CRINAOD UM FORM BINDADO
+
+```
+<template>
+	<form>
+		<input type="text" v-model="nomeInp">
+		<input type="text" v-model="idadeInp">
+	</form>
+	<button @click="funcao_cadastrar"> Cadastrar</p> 
+
+<script>
+export default {
+	data(){return {
+		nomeInp: "",
+		idadeInp: "",
+		clientes: [
+		{
+		id: 1,
+		nome: "guu",
+		idade: "12"
+		},
+		{
+		id: 2,
+		nome: "Cab",
+		idade: "34"
+		}
+	]
+	}},
+	method: {
+		funcao_cadastrar: function(){
+			this.clientes.push({nome: this.nomeInp, idade: this.idadeInp, id: Date.now() })
+			// Zerando Form apos envio
+			this.nomeInp = ""
+			this.idadeInp = ""
+		}
+	}
+}
+</script>
+
+```
 
 ------------------------------------------------------------------------------------------------------------
 
