@@ -346,6 +346,10 @@ npm i -g @vue/cli
 vue create nome_projeto
 cd nome_projeto
 npm run serve
+
+// BIBLIOTECAS
+
+lodash - npm i --save lodash
 ```
 
 Usar extensão VUE (VETUR) no Visual Studio.
@@ -586,10 +590,17 @@ export default {
 	}},
 	method: {
 		funcao_cadastrar: function(){
-			this.clientes.push({nome: this.nomeInp, idade: this.idadeInp, id: Date.now() })
-			// Zerando Form apos envio
-			this.nomeInp = ""
-			this.idadeInp = ""
+			
+			if(this.nomeInp == ""){
+				console.log("erro")
+			} else {
+				this.clientes.push({nome: this.nomeInp, idade: this.idadeInp, id: Date.now() })
+				// Zerando Form apos envio
+				this.nomeInp = ""
+				this.idadeInp = ""
+			}
+	
+			
 		}
 	}
 }
