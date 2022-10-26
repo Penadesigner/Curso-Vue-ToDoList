@@ -559,6 +559,50 @@ export default {
 
 ```
 
+###### CRIANDO EVENTO DO FILHO PARA O PAI
+
+CLIENTE.VUE 
+
+criamos um metodo, para emitir algo do filho para o seu pai (APP.vue)
+
+```
+
+<template>
+<button @click="emitirEventoDelete"/>Deletar</button>
+</template>
+<script>
+data(){
+return{
+	premiun: false
+}}
+
+method: {
+	emitirEventoDelete: function(){
+	this.$emit("meDelete",{idCliente: this.cliente.id, componente: this}) // emitindo o evendo com nome de meDelete, passando o id do cliente e as informações deste componente.
+	}
+}
+
+</script>
+```
+
+
+APP.VUE
+
+```
+<template>
+<Nome_componente @meDelete="deletarAlgoFilho"/> // O Pai agora esta escutando um evento do filho
+</template>
+
+<script>
+methods: {
+	deletarAlgoFilho: function($event){
+	console.log($event.idCliente)
+	
+	}
+}
+</script>
+```
+
 
 ###### CRINAOD UM FORM BINDADO
 
@@ -608,6 +652,10 @@ export default {
 
 ```
 
+
+###### COMPUTED PROPERTIES
+
+é um metodo que gera um valor, ajuda tambem junto ao LODASH, fazer uma nova listagem dos posts, de acorodo com um filtro de orderBy
 ------------------------------------------------------------------------------------------------------------
 
 ## Controllers 
