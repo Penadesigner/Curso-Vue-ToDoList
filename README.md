@@ -110,14 +110,6 @@ const connection = new sequelize('banco_name','user','senha',{
 module.exports = connection
 ```
 
-##### JOINS
-
-```
-Article.findAll({include: [{model: Category}]})
-    .then(article => {
-	res.render("pergunta",{article: article})
-```
-
 ##### NO INDEX.JS 
 
 Chama o arquivo de conexão > 
@@ -148,6 +140,7 @@ const PergutaModel = require("caminho_do_arquivo_Model")
 ```
 
 O model sera executado assim que o Index.js for solicitado.
+
 
 ##### Salvar dados do form na tabela
 
@@ -197,6 +190,14 @@ exemplo.destroy({where: {id: id}})
 exemplo.findByPk(id)
 
 exemplo.update({campoAtualizar: campoAtualizar},{where: {id: id}})
+
+##### JOINS
+
+```
+Article.findAll({include: [{model: Category}]})
+    .then(article => {
+	res.render("pergunta",{article: article})
+```
 
 ------------------------------------------------------------------------------------------------------------
 
@@ -338,6 +339,61 @@ async function nome_func(){
 }
 nome_func()
 ```
+
+##### JOINS
+
+Cria o relacionamento nas tabelas, atraves de uma FORENKEY
+
+Tab1 { id }
+
+Tab2 { ref_id }
+
+Criar ForengKey: Colunas ref_id - Tabela Tab1 - Coluna id - Cascade - Cascade
+
+```
+const DB = require("database.js")
+
+DB.select({podemos passar aqui os campos que queremos e de qual tabela, e podemos renomear este campo: "tab1.id as game_id"}).table(tab1).innerJoin("tab2","tab2.ref_id","tab1.id") // ele da um innerJoin onde o resultado for tab2 ref_id = tab id
+
+```
+
+
+##### JOINS COM WHERE
+
+```
+
+DB.select({"tab1.id as game_id"}).table(tab1).innerJoin("tab2","tab2.ref_id","tab1.id").where("tab1.id":1) // ele da um innerJoin onde o resultado for tab2 ref_id = tab id
+
+```
+
+##### INSERT ASSOCIADO
+
+Quando criamos um novo dado na tab2 que tem um relacionamento com a tab1:
+
+```
+DB.insert({
+	ref_id: 1
+}).table(tab2).then.catch
+```
+
+##### JOINS M to M
+
+Crie uma tabela intermediaria, com os dados ref_tab1_id e ref_tab2_id
+
+Crie duas ForengKey
+
+Primeira ForengKey: Colunas ref_tab1_id - Tabela Tab1 - Coluna id - Cascade - Cascade
+Primeira ForengKey: Colunas ref_tab2_id - Tabela Tab2 - Coluna id - Cascade - Cascade
+
+```
+DB.select({
+	"tab1.nome as estudio_nome"
+	"tab2.nome as game_nome
+}).table(tabela_intermediaria)
+.innerJoin("tab1","tab1.id","tab_intermediaria.tab1.id")
+.innerJoin("tab2","tab2.id","tab_intermediaria.tab2.id").then.catch
+```
+
 ------------------------------------------------------------------------------------------------------------
 
 ## VUE
@@ -656,6 +712,65 @@ export default {
 ###### COMPUTED PROPERTIES
 
 é um metodo que gera um valor, ajuda tambem junto ao LODASH, fazer uma nova listagem dos posts, de acorodo com um filtro de orderBy
+	
+	
+
+###### COMPUTED PROPERTIES	
+	
+IMPOTANDO ALGUM TIPO DE FRAMEWORK CSS
+
+MAIN.JS
+	
+```
+import "./caminho/bulma.css" ou "./caminho/bootstrap.css"	
+```
+	
+	
+
+## Router VUE
+
+vue create nome
+
+Manually select > Router > seleciona o Router com Barra de espaço > Y > N > cd nome_pastacriada > npm run serve
+
+APP.VUE
+
+```
+template
+
+ <router-view/> // isto que chama os componentes 
+
+/template
+
+```
+
+
+##### Nova Rota
+
+router > index.js
+```
+// Importe um Componente
+
+import Componente from '../views/Componente.vue'
+
+const routes =[
+	{
+		path: "/",
+		name: "Home",
+		component: Componente // usa o componente que foi importado a cima
+	}
+]
+```
+
+router > app.vue
+
+```
+
+<router-link to="/"> Pagina Home </router-link>
+
+
+```
+
 ------------------------------------------------------------------------------------------------------------
 
 ## Controllers 
