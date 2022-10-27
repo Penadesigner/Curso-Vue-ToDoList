@@ -24,6 +24,59 @@ CONF: Adiciona o PATH nas confs avancadas
 
 PARA USO DO SEQUELIZE: NPM I MYSQL2 --save
 
+------------------------------------------------------------------------------------------------------------------------
+## MONGO
+
+DOWNLOAD: MongoDB Comunity server > Execute o arquivo > Complete > Next > Nao instalar o Compass
+
+DOWNLOAD Mongoosh: Tools > MongoDb Shell > extrair arquivos para o C: > Criar na pasta C: uma nova pasta chamada DATA > Nova pasta db
+
+CONF: Adiciona o PATH nas confs avancadas, baseado no camionho da pasta BIN do Mongo e Mongosh
+
+COMANDS: Show dbs - use newbanco - 
+
+##### Abrindo Conexão :
+
+```
+const mongoose = require("mongoose")
+mongoose.connect("mongodb://localhost:27017/nomemodel",{useNewUrlParser: true, useUnifiedTopology: true })
+
+```
+
+##### Criando Model :
+
+```
+const mongoose = require("mongoose")
+
+const articleModel = new mongoose.Schema({
+	nome: String,
+	body: String,
+	date: {type: Date, default: Date.now},
+	special: Boolean,
+	resume> {
+		content: String,
+		author: String
+	}
+})
+module.exporets = articleModel;
+```
+
+INDEX.JS
+
+```
+const mongoose = require("mongoose")
+const nomeComponente_importado = require("/caminhocomponente")
+
+mongoose.connect("mongodb://localhost:27017/nomemodel",{useNewUrlParser: true, useUnifiedTopology: true })
+
+const Article = moongose.model("NomeDaModel",nomeComponente_importado)
+
+const artigo = new NomeDaModel({nome: "gui", body: "estamos testando"})
+
+artigo.save().then.catch
+```
+
+
 
 ------------------------------------------------------------------------------------------------------------------------
 ## EJS 
@@ -765,12 +818,79 @@ const routes =[
 router > app.vue
 
 ```
-
+<template>
 <router-link to="/"> Pagina Home </router-link>
-
+</template>
 
 ```
+	
+	
+##### PARAMETROS
 
+Router > index.js
+	
+```
+const routes =[
+	{
+		path: "/:dado",
+		name: "Home",
+		component: Componente // usa o componente que foi importado a cima
+	}
+]
+```
+
+Router > cadastro.vue
+
+```
+	
+<template>
+	<p> {{ parametrosRota }} </p>
+</template>
+	
+<script>
+	export default{
+		created(){
+			this.parametrosRota = $this.router.params.dado
+		},
+		data(){
+			return{
+				parametrosRota = ""
+			}
+		}
+	}
+</script>
+
+```
+	
+Router > APP.vue
+
+```
+	
+<template>
+	<router-link :to="{name: 'Home', params: {dado:'Gui'}}"> Pagina Home </router-link>
+</template>
+	
+```
+		
+##### NESTED ROUTES
+	
+```	
+const routes =[
+	{
+		path: "/",
+		name: "Home",
+		component: Componente,
+		children: [
+			{
+				path:'clientes',
+				name: 'Clientes',
+				component: Nome_Componente_Usado
+			}
+		]
+	}
+]
+```
+	
 ------------------------------------------------------------------------------------------------------------
 
 ## Controllers 
