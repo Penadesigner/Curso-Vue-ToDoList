@@ -53,7 +53,7 @@ const articleModel = new mongoose.Schema({
 	body: String,
 	date: {type: Date, default: Date.now},
 	special: Boolean,
-	resume> {
+	resume: {
 		content: String,
 		author: String
 	}
@@ -76,7 +76,23 @@ const artigo = new NomeDaModel({nome: "gui", body: "estamos testando"})
 artigo.save().then.catch
 ```
 
+##### PESQUISA :
 
+```
+const Article = moongose.model("NomeDaModel",nomeComponente_importado)
+// Pesquisa geral
+Article.find({}).then.catch
+// Pesquisa especifica
+Article.find({'_id':'231dsdsfw'}).then.catch
+// Objetos aninhados
+Article.find({'resume.content':'alguma coisa'}).then.catch
+// Retorna apenas o primeiro elemento encontrado que segue as especificaçoes passadas	
+Article.findOne({'resume.content':'alguma coisa'}).then.catch
+// Deletando
+Article.findByIdAndDelete({'resume.content':'alguma coisa'}).then.catch
+// Update
+Article.findByIdAndDelete({'resume.content':'alguma coisa'}).then.catch
+```
 
 ------------------------------------------------------------------------------------------------------------------------
 ## EJS 
