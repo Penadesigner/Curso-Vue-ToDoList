@@ -76,7 +76,7 @@ const artigo = new NomeDaModel({nome: "gui", body: "estamos testando"})
 artigo.save().then.catch
 ```
 
-##### PESQUISA :
+##### CRUD
 
 ```
 const Article = moongose.model("NomeDaModel",nomeComponente_importado)
@@ -89,9 +89,9 @@ Article.find({'resume.content':'alguma coisa'}).then.catch
 // Retorna apenas o primeiro elemento encontrado que segue as especificaçoes passadas	
 Article.findOne({'resume.content':'alguma coisa'}).then.catch
 // Deletando
-Article.findByIdAndDelete({'resume.content':'alguma coisa'}).then.catch
+Article.findByIdAndDelete('ea7ea8ea9eaeas').then.catch
 // Update
-Article.findByIdAndDelete({'resume.content':'alguma coisa'}).then.catch
+Article.findByIdAndUpdate('ea7ea8ea9eaeas',{nome: 'guilherme'}).then.catch
 ```
 
 ------------------------------------------------------------------------------------------------------------------------
