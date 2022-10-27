@@ -33,7 +33,7 @@ DOWNLOAD Mongoosh: Tools > MongoDb Shell > extrair arquivos para o C: > Criar na
 
 CONF: Adiciona o PATH nas confs avancadas, baseado no camionho da pasta BIN do Mongo e Mongosh
 
-COMANDS: Show dbs - use newbanco - 
+COMANDS: Show dbs - use nomebanco - show collections - db.nomebanco.find()
 
 ##### Abrindo Conexão :
 
