@@ -25,6 +25,7 @@ CONF: Adiciona o PATH nas confs avancadas
 PARA USO DO SEQUELIZE: NPM I MYSQL2 --save
 
 ------------------------------------------------------------------------------------------------------------------------
+
 ## MONGO
 
 DOWNLOAD: MongoDB Comunity server > Execute o arquivo > Complete > Next > Nao instalar o Compass
@@ -93,73 +94,8 @@ Article.findByIdAndDelete('ea7ea8ea9eaeas').then.catch
 // Update
 Article.findByIdAndUpdate('ea7ea8ea9eaeas',{nome: 'guilherme'}).then.catch
 ```
-
 ------------------------------------------------------------------------------------------------------------------------
-## EJS 
 
-Template Engine - Renderiza HTML 
-
-NPM I EJS --save
-
-CONF: 
-```
-app.set('view  engine','ejs')
-```
-
-CRIAR PASTA VIEWS (Esta pasta esta ligada ao res.RENDER), onde criamos os arquivos .EJS.
-
-Exemplo: 
-
-##### INDEX.JS<
-```
-app.get("/:param1",(req,res)=>{
-
-	var params = req.params.param1
-	var boolean = true
-	var msg = true
-
-	var array = [
-	{nome: "gui",
-       idade: 28} ]
-
-	res.render("index",{
-		param: params,
-		boolean: boolean,
-		msg: msg
-		produtos: array
-}
-}
-
-```
-##### INDEX.EJS
-```
-<p>Nome: <%= params %></p>
-
-<% if(boolean) { %>
-	<p> Alguma coisa</p>
-<% } %>
-
-<% produtos.forEach(function(produto){ %>
-	<%= produto.nome %>
-	<%= produto.idade %>
-<% } %>
-```
-
-------------------------------------------------------------------------------------------------------------------------
-## Arquivos Estaticos 
-
-app.set(express.static("public")) > Criar pasta public na raiz
-
-------------------------------------------------------------------------------------------------------------------------
-## Partials
-
-COMEÇAR: Crie uma pasta "partials" dentro da pasta VIEWS 
-
-USAR: dentro do index.js, voce chama a partial assim:
-```
-<%- include("partials/nomearquivo.ejs" %>
-```
-------------------------------------------------------------------------------------------------------------------------
 ## Sequelize
 
 Manipulador de banco de dados
@@ -463,6 +399,71 @@ DB.select({
 .innerJoin("tab2","tab2.id","tab_intermediaria.tab2.id").then.catch
 ```
 
+------------------------------------------------------------------------------------------------------------------------
+## EJS 
+
+Template Engine - Renderiza HTML 
+
+NPM I EJS --save
+
+CONF: 
+```
+app.set('view  engine','ejs')
+```
+
+CRIAR PASTA VIEWS (Esta pasta esta ligada ao res.RENDER), onde criamos os arquivos .EJS.
+
+Exemplo: 
+
+##### INDEX.JS<
+```
+app.get("/:param1",(req,res)=>{
+
+	var params = req.params.param1
+	var boolean = true
+	var msg = true
+
+	var array = [
+	{nome: "gui",
+       idade: 28} ]
+
+	res.render("index",{
+		param: params,
+		boolean: boolean,
+		msg: msg
+		produtos: array
+}
+}
+
+```
+##### INDEX.EJS
+```
+<p>Nome: <%= params %></p>
+
+<% if(boolean) { %>
+	<p> Alguma coisa</p>
+<% } %>
+
+<% produtos.forEach(function(produto){ %>
+	<%= produto.nome %>
+	<%= produto.idade %>
+<% } %>
+```
+
+------------------------------------------------------------------------------------------------------------------------
+## Arquivos Estaticos 
+
+app.set(express.static("public")) > Criar pasta public na raiz
+
+------------------------------------------------------------------------------------------------------------------------
+## Partials
+
+COMEÇAR: Crie uma pasta "partials" dentro da pasta VIEWS 
+
+USAR: dentro do index.js, voce chama a partial assim:
+```
+<%- include("partials/nomearquivo.ejs" %>
+```
 ------------------------------------------------------------------------------------------------------------
 
 ## VUE
@@ -1137,7 +1138,9 @@ axios.get("url/rota").then(response => {
 
 ```
 
+--------------------------------------------------------------------------------------------------------------------
 
+## FETCH 
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -1203,6 +1206,21 @@ rel: Descreve o que faz o link
 res.json({ dados.id: id, links: HATEOAS })
 
 ```
+--------------------------------------------------------------------------------------------------------------------
+
+## BULMA 
+
+npm i bulma --save
+
+No VUE -> main.js -> import '../node_modules/bulma/css/bulma.css'
+
+--------------------------------------------------------------------------------------------------------------------
+
+## SPECTRE 
+
+npm i spectre.css --save
+
+No VUE -> main.js -> import 'spectre.css/dist/spectre.min.css'
 
 --------------------------------------------------------------------------------------------------------------------
 
